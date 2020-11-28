@@ -158,7 +158,7 @@ namespace OmniConverter
                             }
                             
                             var ev = e as ControlChangeEvent;
-                            bass.SendEventRaw((uint)(0xB0 | (ev.Controller << 8) | (ev.Value << 16)), ev.Channel + 1);
+                            bass.SendEventRaw((uint)((0xB0 | ev.Channel) | (ev.Controller << 8) | (ev.Value << 16)), 0);
                         }
                         else if (e is ProgramChangeEvent)
                         {
